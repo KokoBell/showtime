@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Racing+Sans+One&display=swap');
 
 * {
     font-family: sans-serif;
@@ -34,12 +35,14 @@ body {
 .container h1 {
     font-family: 'Racing Sans One';
     font-size: 1.2rem;
-    letter-spacing: 1px;
-    color: #0A6851;
+    letter-spacing: 2px;
+    color: #021d16;
 }
 
 .container span {
     font-size: 2.4rem;
+    font-family: 'Poppins';
+    color: #1E1E1E;
 }
 
 .container p {
@@ -51,17 +54,18 @@ body {
     right: 0;
     padding: 32px;
     cursor: pointer;
+    font-family: 'Poppins';
 }
 
 .container button {
-    font-family: 'Racing Sans One';
+    font-family: 'Poppins';
     width: 40%;
     height: 60px;
     border-radius: 12px;
     letter-spacing: 1px;
     font-size: medium;
     border: none;
-    color: #D3202B;
+    color: #6600FF;
     cursor: pointer;
 }
 
