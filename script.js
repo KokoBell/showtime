@@ -8,12 +8,19 @@ const randomShow = () => {
     if (parseInt(localStorage.getItem('previous')) != randomIndex) {
         const rShow = ourShows[randomIndex]
         show.textContent = rShow
-        localStorage.setItem('previous',randomIndex)
+        localStorage.setItem('previous', randomIndex)
     } else {
         randomShow()
     }
 }
 
-const checkHistory = () => {
-    console.log(localStorage.getItem('previous'))
+const populateShowField = () => {
+    let pNumber = localStorage.getItem('previous')
+    if (pNumber) {
+        show.textContent = ourShows[parseInt(pNumber)]
+    } else {
+        show.textContent = '...'
+    }
 }
+
+populateShowField()
