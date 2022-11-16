@@ -1,8 +1,23 @@
 const show = document.getElementById('show')
 const showTime = document.getElementById('showtime')
-const ourShows = [`Bob's Burgers`, `Mob Psycho`, `Spy Family`, `Demon Slayers`, `Kung Fu Panda`, `Modern Family`, `Final Space`, `Misty`]
-
+const updateShow = document.getElementById('update')
+const updateInput = document.getElementById('updateInput')
+let ourShows = [`Bob's Burgers`, `Mob Psycho`, `Spy Family`, `Demon Slayers`, `Kung Fu Panda`, `Modern Family`, `Final Space`, `Misty`]
 let previousNumber
+let currentShow = ''
+
+showTime.addEventListener('click', () => {
+    randomShow()
+})
+
+updateShow.addEventListener('click',()=>{
+    addItem()
+})
+
+updateInput.addEventListener('change', (event) => {
+    currentShow = event.target.value
+})
+
 const randomShow = () => {
     show.style.color = '#1E1E1E'
     const randomIndex = Math.floor(Math.random() * ourShows.length)
@@ -48,6 +63,24 @@ const populateShowField = () => {
 const clearStorage = () => {
     localStorage.clear()
     populateShowField()
+}
+
+const updateList = () => {
+    showTime.style.display = 'none'
+    show.style.display = 'none'
+    updateShow.style.display = 'block'
+    updateInput.style.display = 'block'
+    clearStorage()
+    populateShowField()
+}
+
+const addItem = () => {
+    showTime.style.display = 'block'
+    show.style.display = 'block'
+    updateShow.style.display = 'none'
+    updateInput.style.display = 'none'
+    ourShows.push(currentShow)
+    currentShow = ''
 }
 
 populateShowField()
