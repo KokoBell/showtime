@@ -20,7 +20,6 @@ const randomShow = () => {
                 }
             }
             show.textContent = ourShows[tempShow]
-            console.log(start, tempShow)
             start = tempShow
         }, 150)
 
