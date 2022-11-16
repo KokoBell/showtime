@@ -1,11 +1,24 @@
+// Global variables
+
+// Uninitialized
+let ourShows
+let previousNumber
+
+// Initialized
+let currentShow = ''
+
+// HTML Elements
 const show = document.getElementById('show')
 const showTime = document.getElementById('showtime')
 const updateShow = document.getElementById('update')
 const updateInput = document.getElementById('updateInput')
-let ourShows = [`Bob's Burgers`, `Mob Psycho`, `Spy Family`, `Demon Slayers`, `Kung Fu Panda`, `Modern Family`, `Final Space`, `Misty`]
-let previousNumber
-let currentShow = ''
 
+// Check for shows in localStorage and populate the list accordinly
+if (!localStorage.getItem('ourShows')) {
+    ourShows = [`Bob's Burgers`, `Mob Psycho`, `Spy Family`, `Demon Slayers`, `Kung Fu Panda`, `Modern Family`, `Final Space`, `Misty`]
+} else {
+    ourShows = JSON.parse(localStorage.getItem('ourShows'))
+}
 
 // Event listeners for all interactable elements
 
@@ -37,13 +50,6 @@ const randomShow = () => {
         let tempShow
         let interval = setInterval(() => {
             tempShow = Math.floor(Math.random() * ourShows.length)
-            if (tempShow === start) {
-                if (tempShow - 1 > 0) {
-                    tempShow = tempShow - 1
-                } else {
-                    tempShow = tempShow + 1
-                }
-            }
             show.textContent = ourShows[tempShow]
             start = tempShow
         }, 150)
@@ -51,11 +57,9 @@ const randomShow = () => {
         setTimeout(() => {
             clearInterval(interval)
             show.style.color = '#D3202B'
+            show.textContent = rShow
+            localStorage.setItem('previous', randomIndex)
         }, 2000)
-
-        show.textContent = rShow
-        localStorage.setItem('previous', randomIndex)
-
     } else {
         randomShow()
     }
@@ -95,6 +99,7 @@ const addItem = () => {
     updateInput.style.display = 'none'
     ourShows.push(currentShow)
     currentShow = ''
+    localStorage.setItem('ourShows', JSON.stringify(ourShows))
 }
 
 // All functions that need to be called on load are called here
