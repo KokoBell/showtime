@@ -6,18 +6,28 @@ let ourShows = [`Bob's Burgers`, `Mob Psycho`, `Spy Family`, `Demon Slayers`, `K
 let previousNumber
 let currentShow = ''
 
+
+// Event listeners for all interactable elements
+
+// Trigger the randomShow function when the showTime button is clicked
 showTime.addEventListener('click', () => {
     randomShow()
 })
 
-updateShow.addEventListener('click',()=>{
+// Trigger the addItem function when the updateShow button is clicked
+updateShow.addEventListener('click', () => {
     addItem()
 })
 
+// Update the value of currentShow as the user types
 updateInput.addEventListener('change', (event) => {
     currentShow = event.target.value
 })
 
+
+// All the functions that are used by the event listeners
+
+// Show a countdown and then show the randomly selected show
 const randomShow = () => {
     show.style.color = '#1E1E1E'
     const randomIndex = Math.floor(Math.random() * ourShows.length)
@@ -51,6 +61,7 @@ const randomShow = () => {
     }
 }
 
+// If localStorage is used, show the value there. If not, show the default value
 const populateShowField = () => {
     let pNumber = localStorage.getItem('previous')
     if (pNumber) {
@@ -60,11 +71,13 @@ const populateShowField = () => {
     }
 }
 
+// Clear the localStorage and show the default value
 const clearStorage = () => {
     localStorage.clear()
     populateShowField()
 }
 
+// Set the display to input state
 const updateList = () => {
     showTime.style.display = 'none'
     show.style.display = 'none'
@@ -74,6 +87,7 @@ const updateList = () => {
     populateShowField()
 }
 
+// Add items to the current list
 const addItem = () => {
     showTime.style.display = 'block'
     show.style.display = 'block'
@@ -83,4 +97,7 @@ const addItem = () => {
     currentShow = ''
 }
 
+// All functions that need to be called on load are called here
+
+// Trigger popuplateShowField to check localStorage and update the UI accordingly
 populateShowField()
