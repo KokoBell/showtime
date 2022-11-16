@@ -23,4 +23,9 @@ const populateShowField = () => {
     }
 }
 
+const clearStorage = () => {
+    localStorage.clear()
+    populateShowField()
+}
+
 populateShowField()
