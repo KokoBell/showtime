@@ -70,8 +70,10 @@ const populateShowField = () => {
     let pNumber = localStorage.getItem('previous')
     if (pNumber) {
         show.textContent = ourShows[parseInt(pNumber)]
+        show.style.color = '#D3202B'
     } else {
         show.textContent = '...'
+        show.style.color = '#1E1E1E'
     }
 }
 
