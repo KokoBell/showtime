@@ -12,6 +12,7 @@ const show = document.getElementById('show')
 const showTime = document.getElementById('showtime')
 const updateShow = document.getElementById('update')
 const updateInput = document.getElementById('updateInput')
+const heading = document.getElementById('heading')
 
 // Check for shows in localStorage and populate the list accordinly
 if (!localStorage.getItem('ourShows')) {
@@ -81,10 +82,12 @@ const populateShowField = () => {
 const clearStorage = () => {
     localStorage.clear()
     populateShowField()
+    ourShows = [`Bob's Burgers`, `Mob Psycho`, `Spy Family`, `Demon Slayers`, `Kung Fu Panda`, `Modern Family`, `Final Space`, `Misty`]
 }
 
 // Set the display to input state
 const updateList = () => {
+    heading.textContent = 'Add Another Show'
     showTime.style.display = 'none'
     show.style.display = 'none'
     updateShow.style.display = 'block'
@@ -95,6 +98,7 @@ const updateList = () => {
 
 // Add items to the current list
 const addItem = () => {
+    heading.textContent = 'Show Selector'
     showTime.style.display = 'block'
     show.style.display = 'block'
     updateShow.style.display = 'none'
