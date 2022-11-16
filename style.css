@@ -45,14 +45,26 @@ body {
     color: #1E1E1E;
 }
 
-.container p {
+.clear {
     position: absolute;
     color: white;
     font-weight: 700;
     font-size: 0.6rem;
     bottom: 0;
     right: 0;
-    padding: 32px;
+    padding: 24px;
+    cursor: pointer;
+    font-family: 'Poppins';
+}
+
+.update {
+    position: absolute;
+    color: white;
+    font-weight: 700;
+    font-size: 0.6rem;
+    bottom: 0;
+    right: 102px;
+    padding: 24px;
     cursor: pointer;
     font-family: 'Poppins';
 }
@@ -81,5 +93,10 @@ body {
     .container {
         height: 80vh;
         width: 80vw;
+    }
+
+    .container button {
+        width: fit-content;
+        padding: 8px 32px;
     }
 }
