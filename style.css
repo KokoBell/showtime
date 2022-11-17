@@ -81,8 +81,9 @@ body {
     letter-spacing: 1px;
     font-size: medium;
     border: none;
-    color: #6600FF;
+    color: #390981;
     cursor: pointer;
+    font-weight: 700;
 }
 
 #update {
