@@ -94,6 +94,7 @@ body {
 
 .container button {
     font-family: 'Poppins';
+    background-color: white;
     width: 40%;
     height: 60px;
     border-radius: 12px;
