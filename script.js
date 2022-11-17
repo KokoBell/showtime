@@ -16,7 +16,7 @@ const heading = document.getElementById('heading')
 
 // Check for shows in localStorage and populate the list accordinly
 if (!localStorage.getItem('ourShows')) {
-    ourShows = [{ 'name': `Bob's Burgers`, 'url': 'https://soap2day.cc/TczozMToiMTQ1fHwxMDUuMjI1LjEzLjE1M3x8MTY2ODcxNjY0NyI7.html' }, { 'name': `Mob Psycho`, 'url': 'https://9anime.to/watch/mob-psycho-100-iii.yqqv0/ep-2' }, { 'name': `Spy Family`, 'url': '' }, { 'name': `Demon Slayer`, 'url': 'https://9anime.to/watch/demon-slayer-kimetsu-no-yaiba.6q67/ep-24' }, { 'name': `Kung Fu Panda`, 'url': '' }, { 'name': `Modern Family`, 'url': '' }, { 'name': `Final Space`, 'url': '' }, { 'name': `Misty`, 'url': '' }, { 'name': `Rick and Morty`, 'url': '' }]
+    ourShows = [{ 'name': `Bob's Burgers`, 'url': 'https://soap2day.cc/TczozMToiMTQ1fHwxMDUuMjI1LjEzLjE1M3x8MTY2ODcxNjY0NyI7.html' }, { 'name': `Mob Psycho`, 'url': 'https://9anime.to/watch/mob-psycho-100-iii.yqqv0' }, { 'name': `Spy Family`, 'url': 'https://9anime.to/watch/spy-x-family-part-2.vvvo6/' }, { 'name': `Demon Slayer`, 'url': 'https://9anime.to/watch/demon-slayer-kimetsu-no-yaiba.6q67/ep-24' }, { 'name': `Kung Fu Panda`, 'url': 'https://www.netflix.com/watch/81459975' }, { 'name': `Modern Family`, 'url': 'https://soap2day.cc/TczozMDoiOTZ8fDEwNS4yMjUuMTMuMTUzfHwxNjY4NzE4MDQzIjs.html' }, { 'name': `Final Space`, 'url': 'netflix.com/watch/81437328' }, { 'name': `Misty`, 'url': 'https://www.netflix.com/watch/81029907' }, { 'name': `Rick and Morty`, 'url': 'https://www.netflix.com/watch/80098733' }, { 'name': 'Girlfriends', 'url': 'https://www.netflix.com/watch/81270376' }]
 } else {
     ourShows = JSON.parse(localStorage.getItem('ourShows'))
 }
@@ -65,12 +65,16 @@ const randomShow = () => {
             // Update the show name
             show.textContent = rShow
             show.href = showLink
+            show.target = '_blank'
 
             // Update the index in localStorage
             localStorage.setItem('previous', randomIndex)
 
             // Set the showTime to the default text
             showTime.textContent = 'Show Time!'
+            setTimeout(() => {
+                show.click()
+            }, 800)
         }, 2000)
     } else {
         randomShow()
