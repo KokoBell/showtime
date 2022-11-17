@@ -23,6 +23,16 @@ body {
     animation: gradient 10s ease-in-out infinite;
 }
 
+.logo {
+    position: absolute;
+    height: 3rem;
+    width: 3rem;
+    left: 50%;
+    top: 3%;
+    transform: translateX(-50%);
+    z-index: 90;
+}
+
 .container {
     background-color: rgba(183, 251, 234, 0.6);
     padding: 2rem;
