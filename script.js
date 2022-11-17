@@ -38,7 +38,6 @@ updateInput.addEventListener('change', (event) => {
     currentShow = event.target.value
 })
 
-
 // All the functions that are used by the event listeners
 
 // Show a countdown and then show the randomly selected show

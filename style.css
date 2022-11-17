@@ -73,6 +73,19 @@ body {
     font-family: 'Poppins';
 }
 
+.clear:hover,
+.update:hover {
+    background-color: #1e1e1e49;
+    border-radius: 12px;
+}
+
+.clear:active,
+.update:active {
+    color: #e50914;
+    background-color: #1e1e1ead;
+    border-radius: 12px;
+}
+
 .container button {
     font-family: 'Poppins';
     width: 40%;
