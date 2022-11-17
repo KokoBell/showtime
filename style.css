@@ -62,6 +62,7 @@ body {
     color: #1E1E1E;
     font-weight: 700;
     cursor: pointer;
+    text-decoration: none;
 }
 
 #show:hover {

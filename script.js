@@ -16,7 +16,7 @@ const heading = document.getElementById('heading')
 
 // Check for shows in localStorage and populate the list accordinly
 if (!localStorage.getItem('ourShows')) {
-    ourShows = [{ 'name': `Bob's Burgers`, 'url': '' }, { 'name': `Mob Psycho`, 'url': '' }, { 'name': `Spy Family`, 'url': '' }, { 'name': `Demon Slayer`, 'url': '' }, { 'name': `Kung Fu Panda`, 'url': '' }, { 'name': `Modern Family`, 'url': '' }, { 'name': `Final Space`, 'url': '' }, { 'name': `Misty`, 'url': '' }, { 'name': `Rick and Morty`, 'url': '' }]
+    ourShows = [{ 'name': `Bob's Burgers`, 'url': 'https://soap2day.cc/TczozMToiMTQ1fHwxMDUuMjI1LjEzLjE1M3x8MTY2ODcxNjY0NyI7.html' }, { 'name': `Mob Psycho`, 'url': 'https://9anime.to/watch/mob-psycho-100-iii.yqqv0/ep-2' }, { 'name': `Spy Family`, 'url': '' }, { 'name': `Demon Slayer`, 'url': 'https://9anime.to/watch/demon-slayer-kimetsu-no-yaiba.6q67/ep-24' }, { 'name': `Kung Fu Panda`, 'url': '' }, { 'name': `Modern Family`, 'url': '' }, { 'name': `Final Space`, 'url': '' }, { 'name': `Misty`, 'url': '' }, { 'name': `Rick and Morty`, 'url': '' }]
 } else {
     ourShows = JSON.parse(localStorage.getItem('ourShows'))
 }
@@ -47,6 +47,7 @@ const randomShow = () => {
     const randomIndex = Math.floor(Math.random() * ourShows.length)
     if (parseInt(localStorage.getItem('previous')) != randomIndex) {
         const rShow = ourShows[randomIndex].name
+        const showLink = ourShows[randomIndex].url
         let start = -1
         let tempShow
         let interval = setInterval(() => {
@@ -63,6 +64,7 @@ const randomShow = () => {
 
             // Update the show name
             show.textContent = rShow
+            show.href = showLink
 
             // Update the index in localStorage
             localStorage.setItem('previous', randomIndex)
