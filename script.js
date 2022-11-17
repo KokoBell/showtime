@@ -101,7 +101,6 @@ const updateList = () => {
     show.style.display = 'none'
     updateShow.style.display = 'block'
     updateInput.style.display = 'block'
-    clearStorage()
     populateShowField()
 }
 
@@ -112,9 +111,12 @@ const addItem = () => {
     show.style.display = 'block'
     updateShow.style.display = 'none'
     updateInput.style.display = 'none'
-    ourShows.push(currentShow)
-    currentShow = ''
-    localStorage.setItem('ourShows', JSON.stringify(ourShows))
+    if (currentShow != '') {
+        ourShows.push(currentShow)
+        localStorage.setItem('ourShows', JSON.stringify(ourShows))
+        currentShow = ''
+    }
+    populateShowField()
 }
 
 // All functions that need to be called on load are called here
