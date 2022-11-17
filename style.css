@@ -56,13 +56,10 @@ body {
     color: rgba(3, 87, 14, 0.644);
 }
 
-.container span {
+#show {
     font-size: 2.4rem;
     font-family: 'Poppins';
     color: #1E1E1E;
-}
-
-#show {
     font-weight: 700;
 }
 

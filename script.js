@@ -16,7 +16,7 @@ const heading = document.getElementById('heading')
 
 // Check for shows in localStorage and populate the list accordinly
 if (!localStorage.getItem('ourShows')) {
-    ourShows = [`Bob's Burgers`, `Mob Psycho`, `Spy Family`, `Demon Slayers`, `Kung Fu Panda`, `Modern Family`, `Final Space`, `Misty`]
+    ourShows = [{ 'name': `Bob's Burgers`, 'url': '' }, { 'name': `Mob Psycho`, 'url': '' }, { 'name': `Spy Family`, 'url': '' }, { 'name': `Demon Slayer`, 'url': '' }, { 'name': `Kung Fu Panda`, 'url': '' }, { 'name': `Modern Family`, 'url': '' }, { 'name': `Final Space`, 'url': '' }, { 'name': `Misty`, 'url': '' }, { 'name': `Rick and Morty`, 'url': '' }]
 } else {
     ourShows = JSON.parse(localStorage.getItem('ourShows'))
 }
@@ -46,12 +46,12 @@ const randomShow = () => {
     showTime.textContent = 'Hmmmm...'
     const randomIndex = Math.floor(Math.random() * ourShows.length)
     if (parseInt(localStorage.getItem('previous')) != randomIndex) {
-        const rShow = ourShows[randomIndex]
+        const rShow = ourShows[randomIndex].name
         let start = -1
         let tempShow
         let interval = setInterval(() => {
             tempShow = Math.floor(Math.random() * ourShows.length)
-            show.textContent = ourShows[tempShow]
+            show.textContent = ourShows[tempShow].name
             start = tempShow
         }, 150)
 
@@ -79,8 +79,8 @@ const randomShow = () => {
 const populateShowField = () => {
     let pNumber = localStorage.getItem('previous')
     if (pNumber) {
-        show.textContent = ourShows[parseInt(pNumber)]
-        show.style.color = '#D3202B'
+        show.textContent = ourShows[parseInt(pNumber)].name
+        show.style.color = '#e50914'
     } else {
         show.textContent = '...'
         show.style.color = '#1E1E1E'
@@ -91,7 +91,7 @@ const populateShowField = () => {
 const clearStorage = () => {
     localStorage.clear()
     populateShowField()
-    ourShows = [`Bob's Burgers`, `Mob Psycho`, `Spy Family`, `Demon Slayers`, `Kung Fu Panda`, `Modern Family`, `Final Space`, `Misty`]
+    ourShows = []
 }
 
 // Set the display to input state
