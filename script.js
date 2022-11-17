@@ -57,8 +57,14 @@ const randomShow = () => {
 
         setTimeout(() => {
             clearInterval(interval)
-            show.style.color = '#D3202B'
+
+            // Set the show text color to red
+            show.style.color = '#e50914'
+
+            // Update the show name
             show.textContent = rShow
+
+            // Update the index in localStorage
             localStorage.setItem('previous', randomIndex)
         }, 2000)
     } else {
