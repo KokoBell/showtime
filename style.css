@@ -8,12 +8,19 @@
     padding: 0;
 }
 
+html,
 body {
-    background-image: url('images/ShowTime.png');
-    height: 100vh;
+    height: 100%;
     width: 100%;
+}
+
+body {
+    background: rgb(84, 4, 215);
+    background: linear-gradient(170deg, rgba(84, 4, 215, 1) 0%, rgba(1, 171, 132, 1) 56.00000000000001%, rgba(1, 173, 130, 1) 100%);
+    background-size: 200% 150%;
     display: grid;
     place-content: center;
+    animation: gradient 10s ease-in-out infinite;
 }
 
 .container {
@@ -105,7 +112,8 @@ body {
     display: none;
 }
 
-.showName, .updateInput {
+.showName,
+.updateInput {
     display: none;
 }
 
@@ -149,5 +157,19 @@ body {
 
     .updateInput {
         bottom: 180px;
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 50% 50%;
+    }
+
+    100% {
+        background-position: 0% 0%;
     }
 }
