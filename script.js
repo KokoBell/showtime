@@ -43,6 +43,7 @@ updateInput.addEventListener('change', (event) => {
 // Show a countdown and then show the randomly selected show
 const randomShow = () => {
     show.style.color = '#1E1E1E'
+    showTime.textContent = 'Hmmmm...'
     const randomIndex = Math.floor(Math.random() * ourShows.length)
     if (parseInt(localStorage.getItem('previous')) != randomIndex) {
         const rShow = ourShows[randomIndex]
@@ -65,6 +66,9 @@ const randomShow = () => {
 
             // Update the index in localStorage
             localStorage.setItem('previous', randomIndex)
+
+            // Set the showTime to the default text
+            showTime.textContent = 'Show Time!'
         }, 2000)
     } else {
         randomShow()
