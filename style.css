@@ -84,7 +84,7 @@ body {
     font-weight: 700;
     font-size: 0.6rem;
     bottom: 0;
-    right: 102px;
+    right: 100px;
     padding: 24px;
     cursor: pointer;
     font-family: 'Poppins';
@@ -93,11 +93,13 @@ body {
 .clear,
 .update {
     z-index: 90;
+    background-color: #1e1e1e36;
+    border-radius: 12px;
 }
 
 .clear:hover,
 .update:hover {
-    background-color: #1e1e1e49;
+    background-color: #1e1e1e7c;
     border-radius: 12px;
 }
 
@@ -178,6 +180,21 @@ body {
 
     .updateInput {
         bottom: 180px;
+    }
+
+    .clear {
+        right: 0;
+    }
+
+    .update {
+        left: 0;
+    }
+
+    .clear,
+    .update {
+        width: 50%;
+        background-color: #1e1e1e36;
+        border-radius: 12px;
     }
 }
 
