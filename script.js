@@ -60,7 +60,6 @@ const randomShow = () => {
             showTime.textContent = 'Add a show'
             showTime.onclick = () => {
                 updateList()
-                showTime.removeEventListener('click')
             }
         }, 800)
         return
