@@ -158,7 +158,6 @@ const toggleCard = () => {
         updateShow.style.display = 'block'
         updateInput.style.display = 'flex'
         urlInput.style.display = 'flex'
-        console.log(showLabel, urlLabel)
         showLabel.style.display = 'flex'
         urlLabel.style.display = 'flex'
     }
