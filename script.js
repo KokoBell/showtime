@@ -4,14 +4,17 @@
 let ourShows
 let previousNumber
 
-// Initialized
+// Initialized variables
 let currentShow = ''
+let currentUrl = ''
 
 // HTML Elements
 const show = document.getElementById('show')
 const showTime = document.getElementById('showtime')
 const updateShow = document.getElementById('update')
 const updateInput = document.getElementById('updateInput')
+const urlInput = document.getElementById('urlInput')
+
 const heading = document.getElementById('heading')
 
 // Check for shows in localStorage and populate the list accordinly
@@ -36,6 +39,11 @@ updateShow.addEventListener('click', () => {
 // Update the value of currentShow as the user types
 updateInput.addEventListener('change', (event) => {
     currentShow = event.target.value
+})
+
+// Update the value of currentUrl as the user types
+urlInput.addEventListener('change', (event) => {
+    currentUrl = event.target.value
 })
 
 // All the functions that are used by the event listeners
@@ -135,6 +143,7 @@ const toggleCard = () => {
         show.style.display = 'block'
         updateShow.style.display = 'none'
         updateInput.style.display = 'none'
+        urlInput.style.display = 'none'
         showTime.onclick = () => {
             randomShow()
         }
@@ -144,6 +153,7 @@ const toggleCard = () => {
         show.style.display = 'none'
         updateShow.style.display = 'block'
         updateInput.style.display = 'block'
+        urlInput.style.display = 'flex'
     }
 }
 
@@ -157,7 +167,10 @@ const updateList = () => {
 const addItem = () => {
     toggleCard()
     if (currentShow != '') {
-        ourShows.push({ 'name': currentShow, 'url': '#' })
+        if (currentUrl === '') {
+            currentUrl = '#'
+        }
+        ourShows.push({ 'name': currentShow, 'url': currentUrl })
         localStorage.setItem('ourShows', JSON.stringify(ourShows))
         currentShow = ''
     }

@@ -132,9 +132,9 @@ body {
 }
 
 #update {
-    position: absolute;
     bottom: 136px;
-    width: 20%;
+    padding: 0;
+    width: 40%;
     display: none;
 }
 
@@ -145,9 +145,25 @@ body {
     display: none;
 }
 
+.urlLabel,
+.showName {
+    display: none;
+}
+
 .updateInput {
-    position: relative;
-    bottom: 152px;
+    border: none;
+    outline: none;
+    height: 48px;
+    width: 60%;
+    border-radius: 12px;
+    padding: 4px 12px;
+    color: teal;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Poppins';
+}
+
+.updateInput:enabled{
     border: none;
     outline: none;
     height: 48px;
@@ -162,8 +178,20 @@ body {
 
 .updateInput:focus,
 .updateInput:focus-within {
-    position: relative;
-    bottom: 152px;
+    border: none;
+    outline: none;
+    height: 48px;
+    width: 60%;
+    border-radius: 12px;
+    padding: 4px 12px;
+    color: teal;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Poppins';
+    bottom: 260px;
+}
+
+.urlInput {
     border: none;
     outline: none;
     height: 48px;
