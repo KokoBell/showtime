@@ -14,6 +14,8 @@ const showTime = document.getElementById('showtime')
 const updateShow = document.getElementById('update')
 const updateInput = document.getElementById('updateInput')
 const urlInput = document.getElementById('urlInput')
+const showLabel = document.getElementById('showName')
+const urlLabel = document.getElementById('urlLabel')
 
 const heading = document.getElementById('heading')
 
@@ -144,6 +146,8 @@ const toggleCard = () => {
         updateShow.style.display = 'none'
         updateInput.style.display = 'none'
         urlInput.style.display = 'none'
+        showLabel.style.display = 'none'
+        urlLabel.style.display = 'none'
         showTime.onclick = () => {
             randomShow()
         }
@@ -152,8 +156,11 @@ const toggleCard = () => {
         showTime.style.display = 'none'
         show.style.display = 'none'
         updateShow.style.display = 'block'
-        updateInput.style.display = 'block'
+        updateInput.style.display = 'flex'
         urlInput.style.display = 'flex'
+        console.log(showLabel, urlLabel)
+        showLabel.style.display = 'flex'
+        urlLabel.style.display = 'flex'
     }
 }
 
