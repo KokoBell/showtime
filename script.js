@@ -16,7 +16,7 @@ const heading = document.getElementById('heading')
 
 // Check for shows in localStorage and populate the list accordinly
 if (!localStorage.getItem('ourShows')) {
-    ourShows = [{ 'name': `Bob's Burgers`, 'url': 'https://soap2day.cc/TczozMToiMTQ1fHwxMDUuMjI1LjEzLjE1M3x8MTY2ODcxNjY0NyI7.html' }, { 'name': `Mob Psycho`, 'url': 'https://9anime.to/watch/mob-psycho-100-iii.yqqv0' }, { 'name': `Spy Family`, 'url': 'https://9anime.to/watch/spy-x-family-part-2.vvvo6/' }, { 'name': `Demon Slayer`, 'url': 'https://9anime.to/watch/demon-slayer-kimetsu-no-yaiba.6q67/ep-24' }, { 'name': `Kung Fu Panda`, 'url': 'https://www.netflix.com/watch/81459975' }, { 'name': `Modern Family`, 'url': 'https://soap2day.cc/TczozMDoiOTZ8fDEwNS4yMjUuMTMuMTUzfHwxNjY4NzE4MDQzIjs.html' }, { 'name': `Final Space`, 'url': 'netflix.com/watch/81437328' }, { 'name': `Misty`, 'url': 'https://www.netflix.com/watch/81029907' }, { 'name': `Rick and Morty`, 'url': 'https://www.netflix.com/watch/80098733' }, { 'name': 'Girlfriends', 'url': 'https://www.netflix.com/watch/81270376' }]
+    ourShows = [{ 'name': `Bob's Burgers`, 'url': 'https://soap2day.cc/TczozMToiMTQ1fHwxMDUuMjI1LjEzLjE1M3x8MTY2ODcxNjY0NyI7.html' }, { 'name': `Mob Psycho`, 'url': 'https://9anime.to/watch/mob-psycho-100-iii.yqqv0' }, { 'name': `Spy Family`, 'url': 'https://9anime.to/watch/spy-x-family-part-2.vvvo6/' }, { 'name': `Demon Slayer`, 'url': 'https://9anime.to/watch/demon-slayer-kimetsu-no-yaiba.6q67/ep-24' }, { 'name': `Kung Fu Panda`, 'url': 'https://www.netflix.com/watch/81459975' }, { 'name': `Modern Family`, 'url': 'https://soap2day.cc/TczozMDoiOTZ8fDEwNS4yMjUuMTMuMTUzfHwxNjY4NzE4MDQzIjs.html' }, { 'name': `Final Space`, 'url': 'https://netflix.com/watch/81437328' }, { 'name': `Misty`, 'url': 'https://www.netflix.com/watch/81029907' }, { 'name': `Rick and Morty`, 'url': 'https://www.netflix.com/watch/80098733' }, { 'name': 'Girlfriends', 'url': 'https://www.netflix.com/watch/81270376' }]
 } else {
     ourShows = JSON.parse(localStorage.getItem('ourShows'))
 }
@@ -81,15 +81,27 @@ const randomShow = () => {
     }
 }
 
+// update the span with the show text
+const updateShowtime = (pNumber) => {
+    show.textContent = ourShows[parseInt(pNumber)].name
+    show.href = ourShows[parseInt(pNumber)].url
+    show.target = '_blank'
+    show.style.color = '#e50914'
+}
+
+// show the default show on the text
+const defaultShow = () => {
+    show.textContent = '...'
+    show.style.color = '#1E1E1E'
+}
+
 // If localStorage is used, show the value there. If not, show the default value
 const populateShowField = () => {
     let pNumber = localStorage.getItem('previous')
     if (pNumber) {
-        show.textContent = ourShows[parseInt(pNumber)].name
-        show.style.color = '#e50914'
+        updateShowtime(pNumber)
     } else {
-        show.textContent = '...'
-        show.style.color = '#1E1E1E'
+        defaultShow()
     }
 }
 
@@ -100,25 +112,34 @@ const clearStorage = () => {
     ourShows = []
 }
 
+// Toggle between the input form and the show field
+const toggleCard = () => {
+    if (showTime.style.display === 'none') {
+        heading.textContent = 'Show Selector'
+        showTime.style.display = 'block'
+        show.style.display = 'block'
+        updateShow.style.display = 'none'
+        updateInput.style.display = 'none'
+    } else {
+        heading.textContent = 'Add Another Show'
+        showTime.style.display = 'none'
+        show.style.display = 'none'
+        updateShow.style.display = 'block'
+        updateInput.style.display = 'block'
+    }
+}
+
 // Set the display to input state
 const updateList = () => {
-    heading.textContent = 'Add Another Show'
-    showTime.style.display = 'none'
-    show.style.display = 'none'
-    updateShow.style.display = 'block'
-    updateInput.style.display = 'block'
+    toggleCard()
     populateShowField()
 }
 
 // Add items to the current list
 const addItem = () => {
-    heading.textContent = 'Show Selector'
-    showTime.style.display = 'block'
-    show.style.display = 'block'
-    updateShow.style.display = 'none'
-    updateInput.style.display = 'none'
+    toggleCard()
     if (currentShow != '') {
-        ourShows.push(currentShow)
+        ourShows.push({ 'name': currentShow, 'url': '#' })
         localStorage.setItem('ourShows', JSON.stringify(ourShows))
         currentShow = ''
     }
