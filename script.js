@@ -44,6 +44,17 @@ updateInput.addEventListener('change', (event) => {
 const randomShow = () => {
     show.style.color = '#1E1E1E'
     showTime.textContent = 'Hmmmm...'
+    if (ourShows.length == 0) {
+        setTimeout(() => {
+            show.textContent = 'Your roster is empty'
+            showTime.textContent = 'Add a show'
+            showTime.onclick = () => {
+                updateList()
+                showTime.removeEventListener('click')
+            }
+        }, 800)
+        return
+    }
     const randomIndex = Math.floor(Math.random() * ourShows.length)
     if (parseInt(localStorage.getItem('previous')) != randomIndex) {
         const rShow = ourShows[randomIndex].name
@@ -119,10 +130,14 @@ const clearStorage = () => {
 const toggleCard = () => {
     if (showTime.style.display === 'none') {
         heading.textContent = 'Show Selector'
+        showTime.textContent = 'Show Time!'
         showTime.style.display = 'block'
         show.style.display = 'block'
         updateShow.style.display = 'none'
         updateInput.style.display = 'none'
+        showTime.onclick = () => {
+            randomShow()
+        }
     } else {
         heading.textContent = 'Add Another Show'
         showTime.style.display = 'none'
