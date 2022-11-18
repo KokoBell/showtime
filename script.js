@@ -73,8 +73,11 @@ const randomShow = () => {
             // Set the showTime to the default text
             showTime.textContent = 'Show Time!'
             setTimeout(() => {
-                show.click()
-            }, 800)
+                if (showLink != "#") {
+                    show.click()
+                }
+                console.log('No valid url')
+            }, 1500)
         }, 2000)
     } else {
         randomShow()
