@@ -94,6 +94,7 @@ const randomShow = () => {
             showTime.textContent = 'Show Time!'
             setTimeout(() => {
                 if (showLink != "#") {
+                    console.log('Clicked')
                     show.click()
                 }
                 console.log('No valid url')
