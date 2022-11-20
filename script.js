@@ -75,7 +75,6 @@ const randomShow = () => {
             show.textContent = ourShows[tempShow].name
             start = tempShow
         }, 150)
-
         setTimeout(() => {
             clearInterval(interval)
 
@@ -90,16 +89,17 @@ const randomShow = () => {
             // Update the index in localStorage
             localStorage.setItem('previous', randomIndex)
 
-            // Set the showTime to the default text
+            // Set the showTime button to the default text
             showTime.textContent = 'Show Time!'
+
             setTimeout(() => {
                 if (showLink != "#") {
-                    console.log('Clicked')
                     show.click()
                 }
-                console.log('No valid url')
-            }, 1500)
-        }, 2000)
+            }, 2000)
+
+
+        }, 3000)
     } else {
         randomShow()
     }
