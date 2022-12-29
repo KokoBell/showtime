@@ -16,10 +16,10 @@ const updateInput = document.getElementById('updateInput')
 const urlInput = document.getElementById('urlInput')
 const showLabel = document.getElementById('showName')
 const urlLabel = document.getElementById('urlLabel')
-
 const heading = document.getElementById('heading')
 
-// Check for shows in localStorage and populate the list accordinly
+// Check for shows in localStorage and populate the list accordingly
+// Change this function to get if there's network, and switch between localStorage and supabase accordingly
 if (!localStorage.getItem('ourShows')) {
     ourShows = [{ 'name': `Bob's Burgers`, 'url': 'https://soap2day.cc/TczozMToiMTQ1fHwxMDUuMjI1LjEzLjE1M3x8MTY2ODcxNjY0NyI7.html' }, { 'name': `Mob Psycho`, 'url': 'https://9anime.to/watch/mob-psycho-100-iii.yqqv0' }, { 'name': `Spy Family`, 'url': 'https://9anime.to/watch/spy-x-family-part-2.vvvo6/' }, { 'name': `Demon Slayer`, 'url': 'https://9anime.to/watch/demon-slayer-kimetsu-no-yaiba.6q67/ep-24' }, { 'name': `Kung Fu Panda`, 'url': 'https://www.netflix.com/watch/81459975' }, { 'name': `Modern Family`, 'url': 'https://soap2day.cc/TczozMDoiOTZ8fDEwNS4yMjUuMTMuMTUzfHwxNjY4NzE4MDQzIjs.html' }, { 'name': `Final Space`, 'url': 'https://netflix.com/watch/81437328' }, { 'name': `Misty`, 'url': 'https://www.netflix.com/watch/81029907' }, { 'name': `Rick and Morty`, 'url': 'https://www.netflix.com/watch/80098733' }, { 'name': 'Girlfriends', 'url': 'https://www.netflix.com/watch/81270376' }]
 } else {
