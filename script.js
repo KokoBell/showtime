@@ -7,6 +7,7 @@ let previousNumber
 // Initialized variables
 let currentShow = ''
 let currentUrl = ''
+let showColor='#146375'
 
 // HTML Elements
 const show = document.getElementById('show')
@@ -78,8 +79,8 @@ const randomShow = () => {
         setTimeout(() => {
             clearInterval(interval)
 
-            // Set the show text color to red
-            show.style.color = '#e50914'
+            // Set the show text color to the primary colour
+            show.style.color = showColor
 
             // Update the show name
             show.textContent = rShow
@@ -110,7 +111,7 @@ const updateShowtime = (pNumber) => {
     show.textContent = ourShows[parseInt(pNumber)].name
     show.href = ourShows[parseInt(pNumber)].url
     show.target = '_blank'
-    show.style.color = '#e50914'
+    show.style.color = showColor
 }
 
 // show the default show on the text
